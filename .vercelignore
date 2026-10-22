@@ -1,0 +1,11 @@
+node_modules/
+.pnpm-store/
+dist/
+.git/
+.env*
+!.env.example
+*.tsbuildinfo
+*.log
+test-results/
+coverage/
+premium-audit.json

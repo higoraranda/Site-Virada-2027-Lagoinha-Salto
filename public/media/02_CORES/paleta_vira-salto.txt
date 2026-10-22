@@ -1,0 +1,8 @@
+VIRA SALTO 2027 — PALETA OFICIAL (4 cores)
+
+Creme           HEX #F6E8CE  RGB 246 232 206  CMYK aprox. 0 6 16 4
+Azul Virada     HEX #1E90FC  RGB 30 144 252  CMYK aprox. 88 43 0 1
+Amarelo Salto   HEX #F8E520  RGB 248 229 32  CMYK aprox. 0 8 87 3
+Preto           HEX #231714  RGB 35 23 20  CMYK aprox. 0 34 43 86
+
+CMYK convertido matematicamente a partir do RGB do arquivo. Para impressão, tirar prova de cor com a gráfica.

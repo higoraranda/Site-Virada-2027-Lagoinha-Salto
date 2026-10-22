@@ -1,0 +1,21 @@
+VIRA SALTO 2027 — TIPOGRAFIA
+
+As fontes abaixo são comerciais e não podem ser redistribuídas dentro deste pacote.
+Cada pessoa ou estúdio que for editar os arquivos precisa ter a fonte ativa/licenciada.
+
+1) TUSKER GROTESK — 3600 Semibold
+   Uso: títulos de impacto, palavras distorcidas ("VIRADA SALTO", "WELCOME TO THE NEW YEAR").
+   Fundição: Lewis McGuffie Type
+   Onde licenciar: https://www.myfonts.com/collections/tusker-grotesk-font-lewis-mcguffie-type
+
+2) NEUE HAAS GROTESK DISPLAY PRO — 55 Roman / 65 Medium / 75 Bold / 95 Black
+   Uso: números e datas (95 Black), títulos curtos (75/95) e textos de apoio (55/65).
+   Disponível no Adobe Fonts (ativar pelo Creative Cloud): https://fonts.adobe.com/fonts/neue-haas-grotesk
+
+3) MONUMENT EXTENDED — Ultrabold
+   Uso: "WELCOME 2027" e títulos expandidos (ex.: "JANTAR DA VIRADA 2027").
+   Fundição: Pangram Pangram
+   Onde licenciar: https://pangrampangram.com/products/monument-extended
+
+OBSERVAÇÃO
+Os logos da pasta 01_LOGOS já estão convertidos em curvas (não dependem das fontes instaladas).

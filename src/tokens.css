@@ -1,0 +1,16 @@
+/* Paleta oficial do manual VIRA SALTO 2027. */
+:root {
+  --cream: #f6e8ce;
+  --blue: #1e90fc;
+  --yellow: #f8e520;
+  --ink: #231714;
+  --font-display: system-ui, sans-serif;
+  --font-condensed: system-ui, sans-serif;
+  --font-body: var(--font-display);
+  --page-max: 1280px;
+  --section-space: clamp(4rem, 8vw, 7rem);
+  --scrollbar-thumb: var(--ink);
+  --scrollbar-track: var(--cream);
+  --scrollbar-hover: var(--ink);
+  --scrollbar-active: var(--ink);
+}

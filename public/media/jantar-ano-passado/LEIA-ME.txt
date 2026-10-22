@@ -1,0 +1,1 @@
+Coloque as fotos reais do jantar aqui. No site Higor elas entram automaticamente na galeria por ordem de nome. Use nomes como 01-mesas.jpg, 02-familias.jpg. O site Samuel segue o wireframe do manual e nao tem carrossel.
