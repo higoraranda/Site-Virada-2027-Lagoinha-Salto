@@ -1,0 +1,65 @@
+[
+  {
+    "width": 1440,
+    "scrollWidth": 1440,
+    "body": "\"Neue Haas Grotesk Display Pro\", \"Neue Haas Grotesk Text Pro\", Arial, sans-serif",
+    "faq": "\"Neue Haas Grotesk Display Pro\", \"Neue Haas Grotesk Text Pro\", Arial, sans-serif",
+    "eyebrow": "\"Salto Monument\", system-ui, sans-serif",
+    "heading": "\"Salto Condensed\", system-ui, sans-serif",
+    "date": "\"Salto Monument\", system-ui, sans-serif",
+    "capsPreserved": true,
+    "brandFontsLoaded": [
+      {
+        "family": "\"Salto Condensed\"",
+        "status": "loaded"
+      },
+      {
+        "family": "\"Salto Monument\"",
+        "status": "loaded"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 390,
+    "scrollWidth": 390,
+    "body": "\"Neue Haas Grotesk Display Pro\", \"Neue Haas Grotesk Text Pro\", Arial, sans-serif",
+    "faq": "\"Neue Haas Grotesk Display Pro\", \"Neue Haas Grotesk Text Pro\", Arial, sans-serif",
+    "eyebrow": "\"Salto Monument\", system-ui, sans-serif",
+    "heading": "\"Salto Condensed\", system-ui, sans-serif",
+    "date": "\"Salto Monument\", system-ui, sans-serif",
+    "capsPreserved": true,
+    "brandFontsLoaded": [
+      {
+        "family": "\"Salto Monument\"",
+        "status": "loaded"
+      },
+      {
+        "family": "\"Salto Condensed\"",
+        "status": "loaded"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 320,
+    "scrollWidth": 320,
+    "body": "\"Neue Haas Grotesk Display Pro\", \"Neue Haas Grotesk Text Pro\", Arial, sans-serif",
+    "faq": "\"Neue Haas Grotesk Display Pro\", \"Neue Haas Grotesk Text Pro\", Arial, sans-serif",
+    "eyebrow": "\"Salto Monument\", system-ui, sans-serif",
+    "heading": "\"Salto Condensed\", system-ui, sans-serif",
+    "date": "\"Salto Monument\", system-ui, sans-serif",
+    "capsPreserved": true,
+    "brandFontsLoaded": [
+      {
+        "family": "\"Salto Monument\"",
+        "status": "loaded"
+      },
+      {
+        "family": "\"Salto Condensed\"",
+        "status": "loaded"
+      }
+    ],
+    "errors": []
+  }
+]

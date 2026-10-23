@@ -59,6 +59,8 @@ export const eventConfig = {
       src: "/fonts/TuskerGrotesk-5700Bold.otf",
       weight: "700",
     } as FontAsset | null,
+    // Configure o arquivo da Neue Haas aqui quando ele estiver disponível.
+    body: null as FontAsset | null,
   },
   artworks: {
     logo: {

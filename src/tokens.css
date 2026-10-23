@@ -6,7 +6,9 @@
   --ink: #231714;
   --font-display: system-ui, sans-serif;
   --font-condensed: system-ui, sans-serif;
-  --font-body: var(--font-display);
+  --font-body:
+    "Neue Haas Grotesk Display Pro", "Neue Haas Grotesk Text Pro", Arial,
+    sans-serif;
   --page-max: 1280px;
   --section-space: clamp(4rem, 8vw, 7rem);
   --scrollbar-thumb: var(--ink);
