@@ -49,7 +49,9 @@ export const eventConfig = {
       mapQuery: "Espaço Santa Rita restaurante Itu SP",
     },
   ],
-  ticketUrl: import.meta.env.VITE_TICKET_URL ?? "",
+  ticketUrl:
+    import.meta.env.VITE_TICKET_URL?.trim() ||
+    "https://api.whatsapp.com/send/?phone=5511950740169&text=Ol%C3%A1%21+Vim+pelo+site+da+Virada+e+gostaria+de+garantir+meu+acesso!&type=phone_number&app_absent=0",
   fonts: {
     display: {
       src: "/fonts/MonumentExtended-Regular.otf",
@@ -108,9 +110,9 @@ export const eventConfig = {
     dinnerGalleryLabel: "Recordações da nossa última virada",
     skip: "Pular para o conteúdo",
     eventType: "Culto da Virada",
-    available: "Comprar ingresso",
+    available: "COMPRE AQUI",
     unavailable: "Vendas em breve",
-    external: "Abre a plataforma de ingressos em nova aba",
+    external: "Abre o WhatsApp em nova aba",
     heroIntro: "Um novo ano. Um encontro para viver juntos.",
     newYearStrip: "VIVA O NOVO ANO",
     heroTitleLines: ["Vira", "Salto"],
@@ -164,7 +166,7 @@ export const eventConfig = {
     ticketPending:
       "A venda de ingressos ainda não começou. Quando estiver disponível, você poderá acessar a plataforma de compra por aqui.",
     ticketAvailable:
-      "Os ingressos estão disponíveis na plataforma de compra. Consulte por lá os valores e as condições.",
+      "Para garantir seu acesso, clique em COMPRE AQUI e fale com a equipe pelo WhatsApp.",
     ticketFootnote: "Vira Salto 27 · Culto da Virada",
     faqEyebrow: "Antes de nos encontrarmos",
     faqTitle: "Ficou com\nalguma dúvida?",

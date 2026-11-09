@@ -114,7 +114,7 @@ describe("ingressos externos", () => {
   it("ativa a plataforma externa sem simular checkout", () => {
     render(<TicketButton url=" https://example.com/salto " />);
     const link = screen.getByRole("link");
-    expect(link.textContent).toContain("Comprar ingresso");
+    expect(link.textContent).toContain("COMPRE AQUI");
     expect(link.getAttribute("href")).toBe("https://example.com/salto");
     expect(link.getAttribute("rel")).toContain("noopener");
   });

@@ -145,15 +145,16 @@ img {
 }
 
 .ticket-button {
-  min-height: 58px;
+  min-height: 68px;
+  max-width: 100%;
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
-  gap: 32px;
+  gap: 24px;
   border: 1px solid transparent;
   border-radius: 999px;
-  padding: 14px 28px;
-  font-size: 0.95rem;
+  padding: 18px 34px;
+  font-size: 1.05rem;
   font-weight: 700;
   line-height: 1.5;
   text-align: left;
@@ -416,6 +417,8 @@ dd {
 }
 .ticket-panel .ticket-button {
   width: 100%;
+  padding-inline: 16px;
+  gap: 16px;
 }
 .ticket-panel-footnote {
   display: block;
@@ -531,6 +534,9 @@ details > p {
   font-size: 0.65rem;
   margin-top: 6px;
 }
+.site-footer a {
+  font-weight: 700;
+}
 .mobile-ticket {
   display: none;
 }
@@ -550,10 +556,10 @@ details > p {
 }
 @media (max-width: 760px) {
   body {
-    padding-bottom: calc(88px + env(safe-area-inset-bottom, 0px));
+    padding-bottom: calc(100px + env(safe-area-inset-bottom, 0px));
   }
   html {
-    scroll-padding-bottom: calc(100px + env(safe-area-inset-bottom, 0px));
+    scroll-padding-bottom: calc(112px + env(safe-area-inset-bottom, 0px));
   }
   .shell {
     width: calc(100% - 40px);
@@ -621,7 +627,7 @@ details > p {
   }
   .ticket-panel {
     position: static;
-    padding: 32px;
+    padding: 24px;
   }
   .ticket-panel h3 {
     margin-top: 32px;
@@ -679,9 +685,10 @@ details > p {
     font-weight: 400;
   }
   .mobile-ticket .ticket-button {
-    min-height: 52px;
-    font-size: 0.82rem;
-    padding: 12px 18px;
+    min-height: 60px;
+    font-size: 0.95rem;
+    padding: 14px 20px;
+    flex-shrink: 0;
     gap: 16px;
   }
 }
@@ -714,9 +721,9 @@ details > p {
 }
 .hero-corners .ticket-button {
   margin-left: auto;
-  min-height: 50px;
-  padding-block: 12px;
-  font-size: 0.8rem;
+  min-height: 60px;
+  padding-block: 16px;
+  font-size: 0.95rem;
 }
 .hero-stage {
   flex: 1;
@@ -911,8 +918,8 @@ details > p {
     font-size: 0.58rem;
   }
   .hero-corners .ticket-button {
-    font-size: 0.68rem;
-    min-height: 48px;
+    font-size: 0.78rem;
+    min-height: 56px;
     gap: 12px;
     padding-inline: 14px;
   }
@@ -1088,6 +1095,9 @@ details > p {
   }
 }
 @media (max-width: 360px) {
+  .hero-corners {
+    gap: 8px;
+  }
   .hero-brand img {
     max-width: 100px;
   }
