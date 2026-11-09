@@ -38,7 +38,6 @@ export default function App() {
             <div className="hero-stage">
               <p className="hero-event-date">
                 <time dateTime={event.date}>{event.shortDate}</time>
-                <span>{copy.eventType}</span>
               </p>
               <h1
                 id="hero-title"

@@ -1,0 +1,56 @@
+{
+  "date": "2026-11-08",
+  "source": "local production build",
+  "maps": "Third-party map content not evaluated; embed URLs and links checked.",
+  "layouts": [
+    {
+      "width": 1440,
+      "height": 900,
+      "heroWidth": 1440,
+      "imagesLoaded": true,
+      "ticketButtons": 6,
+      "disabledButtons": 6,
+      "galleryPhotos": 12,
+      "maps": 2,
+      "horizontalOverflow": false,
+      "javascriptErrors": []
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "heroWidth": 390,
+      "imagesLoaded": true,
+      "ticketButtons": 6,
+      "disabledButtons": 6,
+      "galleryPhotos": 12,
+      "maps": 2,
+      "horizontalOverflow": false,
+      "javascriptErrors": []
+    }
+  ],
+  "visitorFlow": [
+    {
+      "width": 1440,
+      "steps": [
+        "Home and countdown",
+        "Footer to locations",
+        "Map link inspection",
+        "Footer to FAQ, open purchase question",
+        "Footer to tickets, pending purchase state"
+      ],
+      "result": "passed"
+    },
+    {
+      "width": 390,
+      "steps": [
+        "Home and countdown",
+        "Footer to locations",
+        "Map link inspection",
+        "Footer to FAQ, open purchase question",
+        "Footer to tickets, pending purchase state"
+      ],
+      "result": "passed"
+    }
+  ],
+  "browser": "154.0.8037.93"
+}

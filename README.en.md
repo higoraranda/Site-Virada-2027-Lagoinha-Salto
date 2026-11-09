@@ -1,9 +1,6 @@
 [Português (Brasil)](README.md) · [English](README.en.md)
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="public/media/01_LOGOS/SVG/01_principal_v27-vira-salto_negativo-amarelo.svg">
-  <img src="public/media/01_LOGOS/SVG/01_principal_v27-vira-salto_colorido-azul.svg" alt="Official Vira Salto 27 logo" width="200">
-</picture>
+<img src="public/media/01_LOGOS/PNG/02_simbolo-v27_amarelo.png" alt="Yellow V27 symbol for Virada Lagoinha Salto" width="160">
 
 # Vira Salto 27
 
@@ -13,7 +10,38 @@ Landing page for **Lagoinha Salto’s New Year’s Eve service**, welcoming 2027
 ![TypeScript 5.9](https://img.shields.io/badge/TypeScript-5.9-1E90FC?logo=typescript&logoColor=F6E8CE&labelColor=231714)
 ![Vite 7.1](https://img.shields.io/badge/Vite-7.1-F8E520?logo=vite&logoColor=231714&labelColor=231714)
 
-This README covers the **Higor version**, independently of the Samuel version. This folder’s contents can become the root of a separate repository; the application does not depend on the parent workspace. No public website address or Git remote has been confirmed in this copy.
+This README covers the **Higor version**, independently of the Samuel version. This folder’s contents can become the root of a separate repository; the application does not depend on the parent workspace. The configured Git remote is [Site-Virada-2027-Lagoinha-Salto](https://github.com/higoraranda/Site-Virada-2027-Lagoinha-Salto). No production website address was confirmed.
+
+![Current desktop opening with the yellow V27 symbol and full-width artwork](docs/screenshots/desktop.png)
+
+## Contents
+
+- [Quick start](#quick-start)
+- [Overview](#overview)
+- [Screenshots](#screenshots)
+- [Technology](#technology)
+- [Local development](#local-development)
+- [Architecture and structure](#architecture-and-structure)
+- [Complete use case](#complete-use-case)
+- [Customization](#customization)
+- [Troubleshooting](#troubleshooting)
+- [Visual identity](#visual-identity)
+- [Validation](#validation)
+- [GitHub and deployment](#github-and-deployment)
+- [Outstanding items and credits](#outstanding-items-and-credits)
+
+## Quick start
+
+Requirements: **Node.js 24.x** and **pnpm 11.25.0**, as specified in `package.json` and `.nvmrc`. From `site higor` in this workspace, or the root of a standalone clone of this version:
+
+```sh
+pnpm install --frozen-lockfile
+pnpm dev
+```
+
+Open [http://127.0.0.1:5174/](http://127.0.0.1:5174/). No `.env.local`, database, authentication or backend is required. Without ticket configuration, controls show **Vendas em breve** (sales coming soon). Stop the server with `Ctrl+C` in the terminal that started it.
+
+If pnpm is not installed, replace `pnpm` with `npx --yes pnpm@11.25.0`, provided npm/npx are available with your Node installation.
 
 ## Overview
 
@@ -29,7 +57,7 @@ This README covers the **Higor version**, independently of the Samuel version. T
 
 ### Implemented features
 
-- Home with official artwork, a logo on the left and a ticket button on the right. The main artwork uses 70% of the desktop width; on mobile, both it and the Welcome image below use 100%.
+- Home with official artwork, a logo on the left and a ticket button on the right. The logo is the yellow V27 symbol. On desktop, the main artwork fills the width, stretching only horizontally while keeping its previous height; at up to 760px, the mobile aspect ratio and framing are preserved. The Welcome image below also fills the mobile width.
 - A countdown with days, hours, minutes and seconds, replaced by a celebration message when the target is reached.
 - A “VIVA O NOVO ANO” strip and a gallery containing 12 photos from the previous celebration, both scrolling continuously to the left without pause buttons.
 - Two Google Maps embeds with lazy loading, descriptive titles and links opening each location in a new tab.
@@ -38,18 +66,31 @@ This README covers the **Higor version**, independently of the Samuel version. T
 
 ## Screenshots
 
-Actual screenshots of the local production build in Chrome, captured on **October 22, 2026**, with no mockups, retouching or image modifications. Ticket controls show the state without a purchase URL.
+Actual screenshots of the **local production build in Chrome on November 8, 2026**, with no purchase URL configured. The main image above shows the opening at 1440 × 900; the page continues below the visible area. Animations were frozen only while capturing. These are not mockups.
 
-**Desktop — 1440 × 900**
+### Mobile — 390 × 844
 
-![Desktop page](docs/screenshots/desktop.png)
+<img src="docs/screenshots/mobile.png" alt="Mobile opening with the yellow symbol, proportional hero artwork and fixed ticket control at the bottom" width="320">
 
-<details>
-<summary>Mobile — 390 × 844</summary>
+The artwork preserves the mobile framing, and ticket controls remain available at the bottom during navigation.
 
-<p><img src="docs/screenshots/mobile.png" alt="Mobile page with the artwork filling the available width" width="320"></p>
+### Countdown
 
-</details>
+![Countdown showing days, hours, minutes and seconds until the service](docs/screenshots/countdown.png)
+
+Visitors can follow the time remaining until **December 31, 2026 at 10:00 PM Brasília time**. The countdown uses the device clock.
+
+### Memories from the previous celebration
+
+![Horizontal gallery displaying real photos of the previous celebration](docs/screenshots/memories.png)
+
+This section contains 12 configured photos, duplicated into two groups for continuous scrolling. There are no navigation or pause controls.
+
+### Questions and ticket availability
+
+![FAQ with the purchase question expanded and the message that sales have not started](docs/screenshots/faq.png)
+
+Visitors expand questions to read answers. The purchase answer follows the same availability state as the ticket buttons.
 
 ## Technology
 
@@ -68,21 +109,9 @@ Installation is defined by `pnpm-lock.yaml`; `package.json` pins **pnpm 11.25.0*
 
 ## Local development
 
-### Prerequisites
+### Requirements and commands
 
-- Node.js **24.x**, also specified in `.nvmrc`.
-- pnpm **11.25.0**, or npm/npx from a standard Node installation to run the commands below.
-
-Run these commands in the directory containing `package.json` — `site higor` in this workspace:
-
-```sh
-npx --yes pnpm@11.25.0 install --frozen-lockfile
-npx --yes pnpm@11.25.0 dev
-```
-
-The development server runs at [http://127.0.0.1:5174/](http://127.0.0.1:5174/). Its port is fixed: stop the previous instance if that port is already occupied.
-
-With pnpm available, the scripts are:
+Use the directory and installation instructions in the [quick start](#quick-start). Port 5174 is fixed: Vite fails if it is occupied.
 
 | Command          | Result                                               |
 | ---------------- | ---------------------------------------------------- |
@@ -106,7 +135,18 @@ If the value is missing, invalid or uses a protocol other than HTTPS, every tick
 
 Restart the server after changing the environment. `VITE_` variables are public in the build; this field is only for the purchase link. Git ignores `.env` files while keeping `.env.example` eligible for version control.
 
-## Project structure
+## Architecture and structure
+
+`src/main.tsx` loads fonts and mounts `App`. Local configuration provides text, event information and media paths; React components render sections, and Vite generates static files in `dist/`. There is no application API, database, authentication, internal payment processing or worker.
+
+```mermaid
+flowchart LR
+  Config["config.ts + public/"] --> UI["React in the browser"]
+  UI --> Maps["Google Maps: embeds and links"]
+  UI --> Tickets["External platform: configured HTTPS URL"]
+```
+
+Google Maps receives name/city queries without a configured API key. The ticket platform receives the visitor in a new tab; purchase and confirmation happen outside this site. The countdown is calculated locally without server requests.
 
 ```text
 src/
@@ -135,11 +175,24 @@ vercel.json          Vercel installation and build configuration
 | `Locations.tsx`                   | Two maps and their external links                                                                            |
 | `NewYearStrip.tsx`                | Continuously scrolling repeated text                                                                         |
 | `PastDinner`, in `RingDinner.tsx` | Continuously scrolling horizontal gallery; the filename is historical and the current version has no 3D ring |
-| `Media.tsx`                       | Proportional artwork, configurable photos and image-error fallback                                           |
+| `Media.tsx`                       | Artwork rendering, configurable photos and image-error fallback                                              |
 
 ### BH and USA references
 
 `MODELOS/Vira Brasil BH` and `MODELOS/Vira Brasil USA`, located in the original workspace, outside the `site higor` folder, were **structure and experience** references for the opening, section pacing, countdown and ticket calls to action. They are outside this independent folder and are not required to install or build the site. Their branding and event data do not replace Salto’s materials.
+
+## Complete use case
+
+**Context:** someone wants to plan their family's participation in the New Year's Eve service. **Requirement:** start the site using the quick start. **Observed state:** no purchase URL configured.
+
+1. Open the home and check the event name and date. Visit the countdown section to see the remaining time.
+2. Choose **Localização** in the footer. The site presents the church in Salto/SP and the restaurant in Itu/SP. Each card offers **Abrir no Google Maps**.
+3. Choose **Dúvidas** in the footer and expand **Como faço para comprar meu ingresso?**. The answer states that sales have not started.
+4. Choose **Ingressos** in the footer. Check the date, the 10:00 PM start and the disabled **Vendas em breve** control.
+
+**Result:** the visitor finds the available information and understands purchase availability. Navigation and FAQ interactions were exercised in desktop and mobile Chrome; map URLs were inspected without validating external pin content. Evidence: [screenshots](#screenshots) and [browser report](docs/verification/readme-2026-11-08.json).
+
+**With a valid URL:** the code and `TicketButton` tests show that all six purchase controls switch to **Comprar ingresso** and open the same HTTPS destination in a new tab. No purchase or real payment platform was exercised in this review.
 
 ## Customization
 
@@ -174,10 +227,21 @@ For a future change, review `countdownTarget`, `startTime`, `copy.countdownNote`
 
 - **Gallery:** add files to `public/media/jantar-ano-passado/`. They are discovered automatically at build time and sorted by filename using numeric comparison. Supported formats are `jpg`, `jpeg`, `png`, `webp` and `avif`; uppercase `JPG`, `JPEG` and `PNG` are also accepted. The folder name has been retained, but the section presents memories of the New Year’s Eve service.
 - **Descriptions and framing:** edit the `dinnerPhotos` mapping in `src/config.ts` to customize `alt`, `fit` and `position`. The current default is `cover`; card dimensions and aspect ratio are defined by `.memory-card` in `src/styles.css`.
-- **Artwork:** the home uses `public/media/home_image.png`; Welcome uses `public/media/foto_abaixo_home.png`; the page logo uses `public/media/logo_lagoinha_salto_virada.png`. When replacing a file, update its path, description and dimensions in `artworks`.
+- **Artwork:** the home uses `public/media/home_image.png`; Welcome uses `public/media/foto_abaixo_home.png`; the page logo uses `public/media/01_LOGOS/PNG/02_simbolo-v27_amarelo.png`. When replacing a file, update its path, description and dimensions in `artworks`.
 - **Fonts:** the files in use are `MonumentExtended-Regular.otf` (400) and `TuskerGrotesk-5700Bold.otf` (700), in `public/fonts/`. Configure them in `fonts`; `src/fonts.ts` applies the families after loading and keeps a system fallback if loading fails.
 
 New photos and production environment changes require a new build/deployment to appear on the published site.
+
+## Troubleshooting
+
+| Symptom                                          | What to check                                                                                                                                                          |
+| ------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Port 5174 is occupied                            | Stop your previous instance with `Ctrl+C`; `--strictPort` prevents silently selecting another port.                                                                    |
+| Button shows “Vendas em breve”                   | Check `VITE_TICKET_URL`: HTTPS without embedded credentials is required. Restart Vite or rebuild after changing the environment.                                       |
+| Missing artwork or photo                         | Check paths, extensions and letter case. URLs start at `/media/`, without `/public/`.                                                                                  |
+| Different font                                   | Check `public/fonts/`; Neue Haas depends on a local installation while `fonts.body` is `null`.                                                                         |
+| Maps unavailable                                 | Embeds depend on connectivity and Google; each card also provides an external link.                                                                                    |
+| Config loading fails in a restricted environment | This review used Vite's runner: `pnpm exec vite build --configLoader runner`; run `pnpm typecheck` first. For tests, use `pnpm exec vitest run --configLoader runner`. |
 
 ## Visual identity
 
@@ -194,42 +258,32 @@ The palette’s source of truth is [`src/tokens.css`](src/tokens.css). Layout an
 
 ## Validation
 
-Checks run during this documentation update on **October 22, 2026**, against the existing code:
+Checks run on **November 8, 2026**, using Node.js **24.22.1** and existing installed dependencies. npm/pnpm were not on this session's PATH, and the default config loader encountered sandbox access restrictions, so local executables were invoked directly:
 
-| Check                      | Result                                                                                                         |
-| -------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| `pnpm test`                | 22 passing tests across 2 files                                                                                |
-| `pnpm typecheck`           | Passed                                                                                                         |
-| `pnpm build`               | Static production build completed                                                                              |
-| Chrome, desktop and mobile | Actual screenshots at 1440 × 900 and 390 × 844; no JavaScript errors or horizontal overflow in those scenarios |
+| Command or check                                                 | Result                                                                                                    |
+| ---------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| `node node_modules/typescript/bin/tsc -b`                        | Passed                                                                                                    |
+| `node node_modules/vite/bin/vite.js build --configLoader runner` | Static build completed in `dist/`                                                                         |
+| `node node_modules/vitest/vitest.mjs run --configLoader runner`  | 22 passing tests across 2 files                                                                           |
+| Chrome, local build                                              | Home, locations, FAQ and tickets at 1440 × 900 and 390 × 844; no JavaScript errors or horizontal overflow |
+
+A clean dependency installation was not repeated: installation instructions match the manifest, lockfile and existing configuration. The [browser report](docs/verification/readme-2026-11-08.json) records the observed workflow and scenarios.
 
 Tests cover countdown calculation and lifecycle, URL validation, purchase state, section order, absence of pause controls and image-error fallback. Browser checks confirmed loaded fonts and artwork, six disabled calls to action, 12 configured photos and two embedded maps; they do not certify Google Maps’ external availability.
+
+Reduced-motion preferences disable several animations, but the photo strip retains an `animation: ... !important` rule; reduced motion is not fully applied to that gallery. This limitation was identified without changing application behavior.
 
 This folder has no `test:browser`, `lint` or `format` script and no CI pipeline. Playwright and Axe are installed as tools; this does not amount to a full accessibility audit or testing across every browser. Historical reports in the parent directory describe earlier stages, including carousel designs that have since been replaced.
 
 ## GitHub and deployment
 
-### Version only this site
+### Repository
 
-Create a repository with **the contents of `site higor` at its root**, excluding the parent workspace and the Samuel version. Review the licensing items below before publishing font files and other materials.
+The local Git repository has `origin` configured as [higoraranda/Site-Virada-2027-Lagoinha-Salto](https://github.com/higoraranda/Site-Virada-2027-Lagoinha-Salto). This confirms local configuration without asserting repository visibility or remote state.
 
-Run these commands yourself inside this folder when ready:
+This folder is an independent application; use its contents as the root of a dedicated repository. `site samuel` and the parent-folder application are separate versions, not dependencies of the Higor version. The BH/USA references are also unnecessary at runtime.
 
-```sh
-git init -b main
-git add .
-git status --short
-git commit -m "Add Vira Salto 27 site"
-```
-
-Then connect your actual repository address and push the branch using GitHub Desktop or the terminal:
-
-```sh
-git remote add origin YOUR_REPOSITORY_URL
-git push -u origin main
-```
-
-Replace `YOUR_REPOSITORY_URL` with the remote you create. Include both READMEs and `docs/screenshots/`, along with the code, `public/` files, tests, lockfile and configuration. `.gitignore` excludes dependencies, builds, caches, local reports, `.env` files and Vercel state. This documentation update did not initialize a repository, commit, push or deploy.
+Include the READMEs, `docs/screenshots/`, `docs/verification/`, source, `public/`, tests and configuration. `.gitignore` excludes dependencies, builds, caches, local test reports, `.env` files and Vercel state. No commit, push or deployment was performed in this review.
 
 ### Vercel
 
@@ -245,13 +299,13 @@ The verifiable configuration is in [`vercel.json`](vercel.json):
 
 After importing a repository containing only this version, set **Root Directory to `./`**. If you keep the entire workspace in the repository, the application directory is `site higor` instead. Set `VITE_TICKET_URL` in the desired environments when the official URL is available, and redeploy after changing it. The page uses anchors and requires neither a backend nor server routes.
 
-References: [Vite on Vercel](https://vercel.com/docs/frameworks/frontend/vite) and [Vercel package managers](https://vercel.com/docs/package-managers). No production URL has been confirmed.
+These values were checked against local files without deploying or consulting the Vercel dashboard. No production URL was confirmed.
 
 ## Outstanding items and credits
 
 - **Tickets:** `VITE_TICKET_URL` is empty in the example; purchases remain unavailable in the captured preview. Prices and conditions are not configured.
 - **Video:** the Welcome area still uses a static image; no video player is implemented.
-- **Publication:** this copy has no confirmed Git repository metadata, remote or public URL.
+- **Publication:** a local Git repository and configured remote exist; no production website address was confirmed in this review.
 - **Licensing:** no general code license was found. The [Monument agreement](public/fonts/Monument-Personal-license-agreement.txt) limits the supplied weights to personal use and restricts redistribution. The [brand kit’s font instructions](public/media/05_FONTES/LEIA-ME_FONTES.txt) also require licenses for commercial fonts. Confirm publication and distribution rights for fonts and materials before uploading a public repository or publishing the site. No MIT license or additional authorization has been added.
 
 Event organizer: **Lagoinha Salto**. Visual materials: the supplied **Vira Salto** identity. Type credits identified in the files: **Pangram Pangram** (Monument Extended) and **Lewis McGuffie Type** (Tusker Grotesk).
