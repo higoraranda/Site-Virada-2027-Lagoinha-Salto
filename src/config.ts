@@ -64,10 +64,10 @@ export const eventConfig = {
   },
   artworks: {
     logo: {
-      src: "/media/logo_lagoinha_salto_virada.png",
-      alt: "Logo da Virada Lagoinha Salto",
+      src: "/media/01_LOGOS/PNG/02_simbolo-v27_amarelo.png",
+      alt: "Símbolo V27 amarelo da Virada Lagoinha Salto",
       width: 3000,
-      height: 1894,
+      height: 1698,
     } as ImageAsset | null,
     hero: {
       src: "/media/home_image.png",

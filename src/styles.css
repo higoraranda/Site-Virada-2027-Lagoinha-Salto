@@ -1030,6 +1030,16 @@ details > p {
   width: 100%;
   height: auto;
 }
+@media (min-width: 761px) {
+  .hero-title:has(.artwork) {
+    width: 100%;
+  }
+  .hero-title .artwork {
+    /* Preserva a altura da arte em 70% da tela, ampliando só a largura. */
+    aspect-ratio: 1920 / 756;
+    object-fit: fill;
+  }
+}
 .below-hero > .shell {
   width: min(1440px, calc(100% - 64px));
 }
