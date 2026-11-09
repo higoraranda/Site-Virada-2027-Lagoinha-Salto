@@ -987,7 +987,7 @@ details > p {
 }
 .dinner-heading > p {
   max-width: 420px;
-  font-size: 0.95rem;
+  font-size: 1.15rem;
 }
 @media (prefers-reduced-motion: reduce) {
   html {
