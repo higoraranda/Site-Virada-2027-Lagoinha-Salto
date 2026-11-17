@@ -14,10 +14,12 @@ Logo canônica: `public/media/01_LOGOS/PNG/02_simbolo-v27_amarelo.png`, símbolo
 
 Hero: acima de 760px, a arte ocupa toda a largura, estendida apenas horizontalmente; sua altura equivale à apresentação anterior em 70% da largura (proporção de exibição 1920 / 756). Até 760px, preservar a proporção original e o enquadramento existente.
 
-Abertura: exibir somente a data acima da arte, sem o rótulo Culto da Virada. Data, ações e textos de apresentação têm tamanho ampliado para legibilidade. A imagem Welcome abaixo da hero chega a 1440px no desktop; no celular, continua com largura total e proporção original.
+Abertura: exibir somente a data acima da arte, sem o rótulo Culto da Virada. Data e ações mantêm os tamanhos existentes. A faixa VIVA O NOVO ANO vem imediatamente após a hero, com fundo preto e texto no amarelo `--yellow`, preservando tipografia e animação. A antiga seção de apresentação `#sobre` foi removida; contador e galeria continuam na sequência.
+
+Encerramento: integra o footer azul, com título Viva o novo ano., arte Welcome e botão de ingresso nessa ordem. A arte original `foto_abaixo_home.png` permanece íntegra, sem filtros ou recortes, com largura máxima de 960px e altura automática. Logo, informações da igreja e navegação permanecem no rodapé; o link para a seção removida não é exibido.
 
 O painel azul de ingressos permanece no fluxo normal, centralizado verticalmente na grade da seção; não acompanha a rolagem. Os tamanhos responsivos e limites de largura ficam em `src/styles.css`.
 
 Botões de venda têm altura mínima de 68px no corpo, 60px no canto da home e 56px nesse canto no celular; a chamada móvel tem mínimo de 60px. Todos os links do rodapé usam peso 700 (negrito).
 
-As seis chamadas de venda exibem COMPRE AQUI e abrem em nova aba o link de WhatsApp fornecido pelo usuário, com telefone e mensagem preenchidos, sem enviar automaticamente. O destino padrão está em `src/config.ts`; uma `VITE_TICKET_URL` não vazia pode substituí-lo. O texto do painel e do FAQ orienta o contato pelo WhatsApp.
+As quatro chamadas de venda exibem COMPRE AQUI e abrem em nova aba o link de WhatsApp fornecido pelo usuário, com telefone e mensagem preenchidos, sem enviar automaticamente. O destino padrão está em `src/config.ts`; uma `VITE_TICKET_URL` não vazia pode substituí-lo. O texto do painel e do FAQ orienta o contato pelo WhatsApp.

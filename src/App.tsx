@@ -63,45 +63,7 @@ export default function App() {
             </div>
           </div>
         </section>
-        {artworks.belowHero && (
-          <div className="below-hero">
-            <div className="shell">
-              <Artwork asset={artworks.belowHero} />
-              <div className="below-hero-actions">
-                <TicketButton />
-                <a className="hero-discover" href="#sobre">
-                  {copy.discover}
-                  <span aria-hidden="true">↓</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        )}
         <NewYearStrip />
-
-        <section
-          id="sobre"
-          className="about section-pad"
-          aria-labelledby="about-title"
-        >
-          <div className="shell about-grid">
-            <div>
-              <p className="eyebrow">{copy.aboutEyebrow}</p>
-              <h2 id="about-title">{copy.aboutTitle}</h2>
-            </div>
-            <div className="about-copy">
-              {copy.aboutParagraphs.map((p) => (
-                <p key={p}>{p}</p>
-              ))}
-              <TicketButton />
-            </div>
-          </div>
-          {artworks.newYear && (
-            <div className="shell artwork-section">
-              <Artwork asset={artworks.newYear} />
-            </div>
-          )}
-        </section>
 
         <section
           id="virada"
@@ -208,7 +170,9 @@ export default function App() {
             </div>
           </div>
         </section>
+      </main>
 
+      <footer className="site-footer">
         <section
           className="closing section-pad"
           aria-labelledby="closing-title"
@@ -219,15 +183,15 @@ export default function App() {
             {artworks.closing && (
               <Artwork asset={artworks.closing} className="closing-art" />
             )}
+            {artworks.belowHero && (
+              <Artwork asset={artworks.belowHero} className="closing-welcome" />
+            )}
             <TicketButton />
             {artworks.logo && (
               <Artwork asset={artworks.logo} className="closing-brand" />
             )}
           </div>
         </section>
-      </main>
-
-      <footer className="site-footer">
         <div className="shell footer-inner">
           <div>
             <span className="footer-church">{event.church}</span>

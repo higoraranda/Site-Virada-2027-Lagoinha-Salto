@@ -83,7 +83,6 @@ export const eventConfig = {
       width: 1920,
       height: 1080,
     } as ImageAsset | null,
-    newYear: null as ImageAsset | null,
     closing: null as ImageAsset | null,
   },
   photos: {
@@ -94,7 +93,6 @@ export const eventConfig = {
     participants: [] as Photo[],
   },
   navigation: [
-    { href: "#sobre", label: "O encontro" },
     { href: "#virada", label: "A virada" },
     { href: "#ano-passado", label: "Ano passado" },
     { href: "#localizacao", label: "Localização" },
@@ -122,13 +120,6 @@ export const eventConfig = {
     heroHope: "Esperança pelo que vem.",
     heroDescription:
       "Vamos receber 2027 na presença de Deus, com a Lagoinha Salto.",
-    discover: "Conheça o encontro",
-    aboutEyebrow: "Um encontro. Um novo começo.",
-    aboutTitle: "O ano muda.\nA fé nos reúne.",
-    aboutParagraphs: [
-      "Há algo especial em encerrar um ciclo com gratidão e começar outro com esperança.",
-      "O Culto da Virada é um convite para estarmos juntos na presença de Deus. No dia 31 de dezembro, a Lagoinha Salto se reúne para receber 2027. Venha viver esse momento com a gente.",
-    ],
     countdownEyebrow: "Contagem para o início do culto",
     countdownLabel: "Tempo até o início do culto",
     countdownTitle: "O novo se aproxima.",

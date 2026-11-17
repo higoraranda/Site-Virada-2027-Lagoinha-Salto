@@ -5,14 +5,24 @@ import { eventConfig } from "../src/config";
 import { PastDinner } from "../src/components/RingDinner";
 import { NewYearStrip } from "../src/components/NewYearStrip";
 afterEach(cleanup);
-it("posiciona Welcome, faixa e seção bege nessa ordem", () => {
+it("mantém a faixa seguida do contador e da galeria, com Welcome no rodapé", () => {
   const { container } = render(<App />);
-  expect(
-    container.querySelector(".below-hero")?.nextElementSibling?.className,
-  ).toBe("new-year-strip");
+  expect(container.querySelector(".below-hero, #sobre")).toBeNull();
   expect(
     container.querySelector(".new-year-strip")?.nextElementSibling?.id,
-  ).toBe("sobre");
+  ).toBe("virada");
+  expect(container.querySelector("#virada")?.nextElementSibling?.id).toBe(
+    "ano-passado",
+  );
+  const welcome = screen.getByRole("img", {
+    name: eventConfig.artworks.belowHero!.alt,
+  });
+  expect(welcome.closest("footer")).not.toBeNull();
+  expect(welcome.previousElementSibling?.id).toBe("closing-title");
+  expect(welcome.nextElementSibling?.hasAttribute("data-ticket")).toBe(true);
+  for (const link of container.querySelectorAll('a[href^="#"]')) {
+    expect(container.querySelector(link.getAttribute("href")!)).not.toBeNull();
+  }
 });
 it("mostra a faixa contínua sem botão de pausa", () => {
   const { container } = render(<NewYearStrip />);
