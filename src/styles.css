@@ -742,7 +742,7 @@ details > p {
 .new-year-strip {
   display: flex;
   align-items: center;
-  background: #000;
+  background: var(--ink);
   color: var(--yellow);
   padding-block: 18px;
 }
