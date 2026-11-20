@@ -10,6 +10,13 @@ export type Photo = ImageAsset & {
   aspectRatio?: string;
 };
 export type FontAsset = { src: string; weight: string };
+export type FaqItem = {
+  question: string;
+  answer: string[];
+  items?: { label: string; text: string }[];
+  notice?: string;
+  note?: string;
+};
 
 const dinnerFiles = import.meta.glob<string>(
   "/public/media/jantar-ano-passado/*.{jpg,jpeg,png,webp,avif,JPG,JPEG,PNG}",
@@ -31,7 +38,7 @@ export const eventConfig = {
   dateLabel: "31 de dezembro de 2026",
   shortDate: "31.12.2026",
   arrivingYear: "2027",
-  countdownTarget: "2026-12-31T22:00:00-03:00",
+  countdownTarget: "2027-01-01T00:00:00-03:00",
   startTime: "22h · horário de Brasília" as string | null,
   companions: "Sua família",
   location: "Lagoinha Salto · Salto, SP" as string | null,
@@ -89,7 +96,14 @@ export const eventConfig = {
     pastDinner: dinnerPhotos,
     congregation: null as Photo | null,
     worship: null as Photo | null,
-    venue: null as Photo | null,
+    venue: {
+      src: "/media/encontro-lagoinha.jpg",
+      alt: "Comunidade reunida em louvor, diante do palco iluminado da igreja",
+      width: 1200,
+      height: 800,
+      fit: "cover",
+      position: "50% 50%",
+    } as Photo | null,
     participants: [] as Photo[],
   },
   navigation: [
@@ -120,13 +134,13 @@ export const eventConfig = {
     heroHope: "Esperança pelo que vem.",
     heroDescription:
       "Vamos receber 2027 na presença de Deus, com a Lagoinha Salto.",
-    countdownEyebrow: "Contagem para o início do culto",
-    countdownLabel: "Tempo até o início do culto",
+    countdownEyebrow: "Contagem para a virada de 2027",
+    countdownLabel:
+      "Tempo até a meia-noite de 1º de janeiro de 2027, horário de Brasília",
     countdownTitle: "O novo se aproxima.",
     countdownNote:
-      "O culto começa em 31/12/2026, às 22h, no horário de Brasília.",
-    celebration:
-      "Chegou a hora do nosso encontro! Vamos celebrar juntos na presença de Deus.",
+      "Contagem até a meia-noite de 1º de janeiro de 2027, no horário de Brasília. O culto começa em 31/12/2026, às 22h.",
+    celebration: "Chegou 2027! Vamos celebrar juntos na presença de Deus.",
     communityEyebrow: "Lagoinha Salto",
     communityTitle: "O melhor é\nestarmos juntos.",
     communityDescription:
@@ -157,7 +171,7 @@ export const eventConfig = {
     ticketPending:
       "A venda de ingressos ainda não começou. Quando estiver disponível, você poderá acessar a plataforma de compra por aqui.",
     ticketAvailable:
-      "Para garantir seu acesso, clique em COMPRE AQUI e fale com a equipe pelo WhatsApp.",
+      "O culto é gratuito. Para garantir seu ingresso do jantar da virada, clique em COMPRE AQUI e fale com a equipe pelo WhatsApp.",
     ticketFootnote: "Vira Salto 27 · Culto da Virada",
     faqEyebrow: "Antes de nos encontrarmos",
     faqTitle: "Ficou com\nalguma dúvida?",
@@ -169,23 +183,86 @@ export const eventConfig = {
   },
   faq: [
     {
-      question: "Quando acontece o Culto da Virada?",
-      answer:
-        "O encontro acontece em 31 de dezembro de 2026, para recebermos 2027 juntos com a Lagoinha Salto.",
+      question: "Quem pode participar do evento? Preciso comprar ingresso?",
+      answer: [
+        "Todos são bem-vindos ao Vira Salto 2027! O culto é gratuito e aberto a todos, independentemente de frequentarem ou não a Lagoinha.",
+        "O ingresso é necessário apenas para participar do jantar da virada. Você pode participar somente do culto, somente do jantar ou de ambos.",
+      ],
     },
     {
-      question: "O que significa o 27 no nome?",
-      answer:
-        "O 27 representa a chegada de 2027. O Culto da Virada acontece no último dia de 2026.",
+      question:
+        "Como posso comprar meu ingresso e quais são as formas de pagamento?",
+      answer: [
+        "Os ingressos são individuais e podem ser adquiridos presencialmente na igreja ou pelo WhatsApp oficial, acessível pelo botão de compra neste site.",
+        "Aceitamos Pix e cartão, sendo que pagamentos com cartão estão sujeitos à taxa da máquina.",
+      ],
+      notice: "Não haverá venda de ingressos no dia do evento.",
     },
     {
-      question: "Como faço para comprar meu ingresso?",
-      kind: "tickets" as const,
+      question: "Como funcionará a confirmação e a entrada no jantar?",
+      answer: [
+        "No momento da compra, será necessário cadastrar os dados de cada participante.",
+        "Na entrada do restaurante, a equipe realizará a conferência desses dados para liberar o acesso. Por isso, é importante que todas as informações estejam corretas e atualizadas.",
+      ],
     },
     {
-      question: "A contagem regressiva indica o início do culto?",
-      answer:
-        "Sim. O culto começa em 31 de dezembro de 2026, às 22h, no horário de Brasília. A contagem regressiva acompanha esse horário.",
+      question: "Qual será a programação e o horário do culto e do jantar?",
+      answer: [
+        "O culto da virada terá início às 22h do dia 31 de dezembro de 2026.",
+        "À meia-noite, teremos um momento especial de oração para receber o novo ano. Após a oração, o culto será encerrado.",
+        "O jantar acontecerá após o término do culto, sem um horário exato de início definido.",
+      ],
     },
-  ],
+    {
+      question:
+        "Onde acontecerão o culto e o jantar? Haverá estacionamento e acessibilidade?",
+      answer: [
+        "O culto e o jantar acontecerão em locais diferentes. Os endereços estão disponíveis neste site.",
+        "Haverá estacionamento e acessibilidade para os participantes.",
+        "Não será disponibilizado transporte coletivo da igreja para todos os participantes. O deslocamento entre os locais deverá ser organizado individualmente.",
+      ],
+    },
+    {
+      question: "O que está incluído no ingresso do jantar da virada?",
+      answer: [
+        "O ingresso garante a participação no jantar especial de Ano-Novo, que contará com buffet de comidas, bebidas, opções infantis e sobremesas.",
+        "O ingresso é destinado exclusivamente ao jantar, já que a participação no culto é gratuita.",
+      ],
+    },
+    {
+      question: "Crianças pagam ingresso? Haverá espaço kids?",
+      answer: [
+        "Sim! Teremos um espaço kids preparado especialmente para as crianças, com monitores de recreação e brinquedos infláveis.",
+        "Os valores dos ingressos seguem a faixa etária:",
+      ],
+      items: [
+        { label: "Até 6 anos:", text: "entrada gratuita." },
+        { label: "De 7 a 12 anos:", text: "meia-entrada." },
+        { label: "A partir de 13 anos:", text: "ingresso com valor integral." },
+      ],
+    },
+    {
+      question: "Os lugares e as mesas serão reservados?",
+      answer: [
+        "Não haverá lugares ou mesas previamente definidos.",
+        "Os participantes poderão escolher livremente onde desejam se sentar, conforme a disponibilidade no momento da chegada.",
+      ],
+    },
+    {
+      question:
+        "Posso transferir, cancelar ou solicitar reembolso do meu ingresso?",
+      answer: [
+        "A transferência do ingresso para outra pessoa será permitida, desde que os dados do novo participante sejam informados presencialmente na igreja, para atualização do cadastro.",
+        "Conforme a política informada pela organização, não estão previstos cancelamentos nem reembolsos.",
+      ],
+      note: "Essa política está sujeita aos direitos obrigatórios previstos na legislação aplicável, especialmente em compras à distância, e não exclui direitos legais.",
+    },
+    {
+      question: "Como posso entrar em contato com a organização?",
+      answer: [
+        "Para esclarecer dúvidas, solicitar informações ou comunicar alguma necessidade específica, entre em contato pelo WhatsApp oficial da Lagoinha Salto.",
+        "Basta clicar no botão de contato ou compra de ingressos disponível neste site para iniciar a conversa com nossa equipe.",
+      ],
+    },
+  ] as FaqItem[],
 };

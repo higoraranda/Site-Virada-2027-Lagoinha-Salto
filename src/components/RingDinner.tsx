@@ -50,6 +50,7 @@ export function PastDinner() {
       <div
         className="photo-marquee"
         role="region"
+        tabIndex={0}
         aria-roledescription="carrossel"
         aria-label={copy.dinnerGalleryLabel}
       >

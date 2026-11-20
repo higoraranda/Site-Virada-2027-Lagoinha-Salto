@@ -30,11 +30,13 @@ export function PhotoSlot({
   fallback,
   caption,
   className = "",
+  overlay,
 }: {
   photo: Photo | null;
   fallback: string;
   caption: string;
   className?: string;
+  overlay?: string;
 }) {
   const [failedSrc, setFailedSrc] = useState<string | null>(null);
   const style = {
@@ -46,12 +48,20 @@ export function PhotoSlot({
     <figure className={`photo-slot ${className}`} style={style}>
       <div className="photo-frame">
         {photo && photo.src !== failedSrc ? (
-          <img
-            src={photo.src}
-            alt={photo.alt}
-            loading="lazy"
-            onError={() => setFailedSrc(photo.src)}
-          />
+          <>
+            <img
+              src={photo.src}
+              alt={photo.alt}
+              width={photo.width}
+              height={photo.height}
+              loading="lazy"
+              decoding="async"
+              onError={() => setFailedSrc(photo.src)}
+            />
+            {overlay && (
+              <p className="photo-fallback photo-overlay">{overlay}</p>
+            )}
+          </>
         ) : (
           <p className="photo-fallback">{fallback}</p>
         )}

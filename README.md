@@ -39,7 +39,7 @@ pnpm install --frozen-lockfile
 pnpm dev
 ```
 
-Acesse [http://127.0.0.1:5174/](http://127.0.0.1:5174/). A página funciona sem `.env.local`, banco, autenticação ou backend. Nesse estado, a compra aparece como **Vendas em breve**. Para encerrar o servidor, pressione `Ctrl+C` no terminal que o iniciou.
+Acesse [http://127.0.0.1:5174/](http://127.0.0.1:5174/). A página funciona sem `.env.local`, banco, autenticação ou backend. Os botões **COMPRE AQUI** usam o WhatsApp oficial configurado; o culto é gratuito e os ingressos são destinados ao jantar. Para encerrar o servidor, pressione `Ctrl+C` no terminal que o iniciou.
 
 Se pnpm não estiver instalado, use `npx --yes pnpm@11.25.0` no lugar de `pnpm`, com npm/npx disponíveis na instalação do Node.
 
@@ -50,19 +50,21 @@ Se pnpm não estiver instalado, use `npx --yes pnpm@11.25.0` no lugar de `pnpm`,
 | Evento                             | Vira Salto 27 — Culto da Virada                                               |
 | Organização                        | Lagoinha Salto                                                                |
 | Data                               | 31 de dezembro de 2026, recebendo 2027                                        |
-| Início do culto e alvo da contagem | 22h, horário de Brasília (UTC−03:00)                                          |
+| Início do culto                    | 31/12/2026 às 22h, horário de Brasília (UTC−03:00)                            |
+| Alvo da contagem                   | 01/01/2027 à meia-noite, horário de Brasília (UTC−03:00)                      |
 | Locais apresentados                | Lagoinha Salto, em Salto/SP; Restaurante Santa Rita, em Itu/SP, para o jantar |
 | Idioma da interface                | Português brasileiro                                                          |
 | Arquitetura                        | Página estática em React, sem backend ou checkout próprio                     |
 
 ### O que está implementado
 
-- Home com artes oficiais, logo à esquerda e botão de ingressos à direita. A logo usa o símbolo V27 amarelo. No desktop, a arte principal ocupa toda a largura e é estendida apenas horizontalmente, mantendo a altura anterior; até 760px, preserva a proporção e o enquadramento do celular. A imagem Welcome abaixo também ocupa 100% no celular.
+- Home com artes oficiais, logo à esquerda e botão de ingressos à direita. A logo usa o símbolo V27 amarelo. No desktop, a arte principal ocupa toda a largura e é estendida apenas horizontalmente, mantendo a altura anterior; até 760px, preserva a proporção e o enquadramento do celular. A imagem Welcome fica no footer, entre Viva o novo ano. e o CTA.
 - Contagem regressiva com dias, horas, minutos e segundos; ao chegar ao alvo, mostra uma mensagem de celebração.
-- Faixa “VIVA O NOVO ANO” e galeria com 12 fotos da última virada, ambas deslizando continuamente para a esquerda, sem botões de pausa.
+- Faixa “VIVA O NOVO ANO” com fundo preto e texto amarelo; galeria com 12 fotos da última virada. Ambas deslizam continuamente para a esquerda; com movimento reduzido, ficam estáticas e a galeria permite rolagem manual.
 - Dois mapas do Google com carregamento adiado, títulos descritivos e links para abrir as localizações em outra aba.
-- Perguntas frequentes com `details`/`summary`, navegação por âncoras no rodapé, link para pular ao conteúdo e chamada de ingressos fixa no celular.
-- Seis pontos de chamada para ingressos, com comportamento centralizado e estado desativado quando falta uma URL HTTPS válida.
+- Dez perguntas frequentes aprovadas, com `details`/`summary`, parágrafos e lista de faixas etárias; navegação por âncoras no rodapé, link para pular ao conteúdo e chamada de ingressos fixa no celular.
+- Quatro pontos de chamada para ingressos, com comportamento centralizado e estado desativado se a URL configurada não for HTTPS válida.
+- Foto fornecida na box Nos encontramos na virada., otimizada em 1200×800, com texto sobreposto e fallback em caso de falha.
 
 ## Demonstração
 
@@ -78,7 +80,7 @@ A arte preserva o enquadramento do celular, e a chamada de ingressos fica dispon
 
 ![Contador com dias, horas, minutos e segundos até o início do culto](docs/screenshots/countdown.png)
 
-O visitante acompanha o tempo até **31/12/2026 às 22h de Brasília**. O contador usa o relógio do dispositivo.
+Na implementação atual, o visitante acompanha o tempo até **01/01/2027 à meia-noite de Brasília**. O contador usa o relógio do dispositivo. A captura acima é histórica, anterior a esse ajuste.
 
 ### Recordações da última virada
 
@@ -90,7 +92,7 @@ A seção apresenta 12 fotos cadastradas, repetidas em dois grupos para manter o
 
 ![FAQ com a pergunta sobre compra aberta e informação de vendas ainda não iniciadas](docs/screenshots/faq.png)
 
-O visitante abre as perguntas para consultar respostas. A resposta de compra acompanha o mesmo estado dos botões de ingresso.
+O visitante abre as dez perguntas para consultar as condições do culto gratuito e do jantar. A captura acima apresenta o FAQ anterior; os textos atuais ficam em `src/config.ts`.
 
 ## Tecnologias
 
@@ -218,15 +220,15 @@ Metadados de título, descrição e Open Graph ficam em [`index.html`](index.htm
 
 ### Contagem regressiva
 
-O alvo implementado e confirmado é **31/12/2026 às 22h, horário de Brasília**:
+O alvo implementado é a **virada para 01/01/2027 à meia-noite, horário de Brasília**:
 
 ```ts
-countdownTarget: "2026-12-31T22:00:00-03:00";
+countdownTarget: "2027-01-01T00:00:00-03:00";
 ```
 
 O cálculo usa esse instante absoluto, independentemente do fuso do visitante, e zera ao chegar ao alvo, sem avançar automaticamente para outro ano. A hora atual vem do relógio do dispositivo, sem sincronização com servidor.
 
-Para uma alteração futura, revise `countdownTarget`, `startTime`, `copy.countdownNote`, a resposta correspondente no FAQ e `tests/event.test.tsx`, que atualmente fixa 22h.
+O início do culto permanece às **22h de 31/12/2026**, separado do alvo do contador. Para uma alteração futura, revise `countdownTarget`, `copy.countdownNote` e `tests/event.test.tsx`; altere `startTime` somente se o horário do culto mudar.
 
 ### Fotos, artes e fontes
 
@@ -276,7 +278,7 @@ A instalação do zero não foi repetida: as instruções de instalação corres
 
 Os testes cobrem cálculo e ciclo de vida do contador, validação da URL, estado de compra, ordem de seções, ausência de controles de pausa e fallback de imagem. As verificações de navegador confirmaram fontes e artes carregadas, seis chamadas desativadas, 12 fotos cadastradas e dois mapas embutidos; não certificam a disponibilidade externa do Google Maps.
 
-A preferência por movimento reduzido desliga várias animações, mas a faixa de fotos mantém uma regra `animation: ... !important`; a redução de movimento não é completa nessa galeria. Essa limitação foi identificada sem alterar o comportamento da aplicação.
+A revisão de finalização corrigiu a redução de movimento da faixa de fotos e do FAQ. Com essa preferência ativa, a galeria permite rolagem horizontal manual sem animação automática.
 
 Não há script `test:browser`, `lint`, `format` ou pipeline de CI nesta pasta. Playwright e Axe estão instalados como ferramentas, mas isso não equivale a uma auditoria completa de acessibilidade ou a testes em todos os navegadores. Relatórios antigos da pasta superior descrevem etapas anteriores, inclusive formatos de carrossel já substituídos.
 

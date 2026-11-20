@@ -14,11 +14,15 @@ Logo canônica: `public/media/01_LOGOS/PNG/02_simbolo-v27_amarelo.png`, símbolo
 
 Hero: acima de 760px, a arte ocupa toda a largura, estendida apenas horizontalmente; sua altura equivale à apresentação anterior em 70% da largura (proporção de exibição 1920 / 756). Até 760px, preservar a proporção original e o enquadramento existente.
 
-Abertura: exibir somente a data acima da arte, sem o rótulo Culto da Virada. Data e ações mantêm os tamanhos existentes. A faixa VIVA O NOVO ANO vem imediatamente após a hero, com fundo marrom `--ink` (`#231714`) e texto no amarelo `--yellow`, preservando tipografia e animação. A antiga seção de apresentação `#sobre` foi removida; contador e galeria continuam na sequência.
+Abertura: exibir somente a data acima da arte, sem o rótulo Culto da Virada. Data e ações mantêm os tamanhos existentes. A faixa VIVA O NOVO ANO vem imediatamente após a hero, com fundo preto (`#000`) exclusivo dessa seção e texto no amarelo `--yellow`, preservando tipografia e animação. A antiga seção de apresentação `#sobre` foi removida; contador e galeria continuam na sequência. O contador acompanha a meia-noite de 01/01/2027 no horário de Brasília; o culto começa às 22h de 31/12/2026.
 
 Encerramento: integra o footer azul, com título Viva o novo ano., arte Welcome e botão de ingresso nessa ordem. A arte original `foto_abaixo_home.png` permanece íntegra, sem filtros ou recortes, com largura máxima de 960px e altura automática. Logo, informações da igreja e navegação permanecem no rodapé; o link para a seção removida não é exibido.
 
 O painel azul de ingressos permanece no fluxo normal, centralizado verticalmente na grade da seção; não acompanha a rolagem. Os tamanhos responsivos e limites de largura ficam em `src/styles.css`.
+
+A box Nos encontramos na virada. usa a foto fornecida em `public/media/encontro-lagoinha.jpg`, otimizada em 1200×800. O enquadramento usa cover, com texto creme sobre gradiente escuro; a mensagem original é preservada como fallback se a foto falhar.
+
+FAQ: dez perguntas aprovadas em `src/config.ts`, com parágrafos, lista semântica para faixas etárias e ressalva dos direitos legais na política de reembolso. Preservar o accordion nativo details/summary, foco visível e abertura suave nos navegadores com suporte a interpolate-size. Movimento reduzido desliga as animações; a galeria permite rolagem horizontal manual nesse modo.
 
 Botões de venda têm altura mínima de 68px no corpo, 60px no canto da home e 56px nesse canto no celular; a chamada móvel tem mínimo de 60px. Todos os links do rodapé usam peso 700 (negrito).
 

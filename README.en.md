@@ -50,7 +50,8 @@ If pnpm is not installed, replace `pnpm` with `npx --yes pnpm@11.25.0`, provided
 | Event                              | Vira Salto 27 — New Year’s Eve service                                                   |
 | Organizer                          | Lagoinha Salto                                                                           |
 | Date                               | December 31, 2026, welcoming 2027                                                        |
-| Service start and countdown target | 10:00 PM Brasília time (UTC−03:00)                                                       |
+| Service start                      | December 31, 2026, at 10:00 PM Brasília time (UTC−03:00)                                 |
+| Countdown target                   | January 1, 2027, at midnight Brasília time (UTC−03:00)                                  |
 | Locations shown                    | Lagoinha Salto in Salto, São Paulo; Restaurante Santa Rita in Itu, São Paulo, for dinner |
 | Interface language                 | Brazilian Portuguese                                                                     |
 | Architecture                       | Static React page with no backend or built-in checkout                                   |
@@ -78,7 +79,7 @@ The artwork preserves the mobile framing, and ticket controls remain available a
 
 ![Countdown showing days, hours, minutes and seconds until the service](docs/screenshots/countdown.png)
 
-Visitors can follow the time remaining until **December 31, 2026 at 10:00 PM Brasília time**. The countdown uses the device clock.
+The current countdown follows the time remaining until **January 1, 2027 at midnight Brasília time**. It uses the device clock. The screenshot above predates this change.
 
 ### Memories from the previous celebration
 
@@ -213,15 +214,15 @@ Title, description and Open Graph metadata are in [`index.html`](index.html). Re
 
 ### Countdown
 
-The implemented and confirmed target is **December 31, 2026, at 10:00 PM Brasília time**:
+The implemented target is **January 1, 2027, at midnight Brasília time**:
 
 ```ts
-countdownTarget: "2026-12-31T22:00:00-03:00";
+countdownTarget: "2027-01-01T00:00:00-03:00";
 ```
 
 The calculation uses this absolute instant regardless of the visitor’s time zone. It reaches zero at the target and does not automatically advance to another year. The current time comes from the device’s clock, without server synchronization.
 
-For a future change, review `countdownTarget`, `startTime`, `copy.countdownNote`, the corresponding FAQ answer and `tests/event.test.tsx`, which currently fixes 10:00 PM. This documentation update did not change the time.
+The service still starts at **10:00 PM on December 31, 2026**, separately from the countdown target. For future changes, review `countdownTarget`, `copy.countdownNote` and `tests/event.test.tsx`; update `startTime` only if the service time changes.
 
 ### Photos, artwork and fonts
 
@@ -271,7 +272,7 @@ A clean dependency installation was not repeated: installation instructions matc
 
 Tests cover countdown calculation and lifecycle, URL validation, purchase state, section order, absence of pause controls and image-error fallback. Browser checks confirmed loaded fonts and artwork, six disabled calls to action, 12 configured photos and two embedded maps; they do not certify Google Maps’ external availability.
 
-Reduced-motion preferences disable several animations, but the photo strip retains an `animation: ... !important` rule; reduced motion is not fully applied to that gallery. This limitation was identified without changing application behavior.
+The finalization update fixes reduced motion in the photo strip and FAQ. With this preference enabled, the gallery supports manual horizontal scrolling without automatic animation.
 
 This folder has no `test:browser`, `lint` or `format` script and no CI pipeline. Playwright and Axe are installed as tools; this does not amount to a full accessibility audit or testing across every browser. Historical reports in the parent directory describe earlier stages, including carousel designs that have since been replaced.
 

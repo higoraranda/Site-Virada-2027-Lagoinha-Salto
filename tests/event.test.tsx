@@ -12,10 +12,11 @@ afterEach(() => {
 });
 
 describe("instante absoluto da virada", () => {
-  const target = Date.parse("2026-12-31T22:00:00-03:00");
+  const target = Date.parse("2027-01-01T00:00:00-03:00");
   it("fixa o alvo e a data confirmados", () => {
-    expect(eventConfig.countdownTarget).toBe("2026-12-31T22:00:00-03:00");
+    expect(eventConfig.countdownTarget).toBe("2027-01-01T00:00:00-03:00");
     expect(eventConfig.date).toBe("2026-12-31");
+    expect(eventConfig.startTime).toBe("22h · horário de Brasília");
   });
   it("decompõe dias, horas, minutos e segundos", () => {
     expect(getCountdown(target, target - 93784000)).toEqual({
@@ -27,7 +28,18 @@ describe("instante absoluto da virada", () => {
     });
   });
   it("equivale ao mesmo instante em UTC", () => {
-    expect(target).toBe(Date.parse("2027-01-01T01:00:00Z"));
+    expect(target).toBe(Date.parse("2027-01-01T03:00:00Z"));
+  });
+  it("continua contando ao iniciar o culto às 22h", () => {
+    expect(
+      getCountdown(target, Date.parse("2026-12-31T22:00:00-03:00")),
+    ).toEqual({
+      days: 0,
+      hours: 2,
+      minutes: 0,
+      seconds: 0,
+      finished: false,
+    });
   });
   it("não encerra no último segundo parcial", () => {
     expect(getCountdown(target, target - 1).finished).toBe(false);

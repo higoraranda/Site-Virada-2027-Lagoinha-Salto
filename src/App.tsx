@@ -131,6 +131,7 @@ export default function App() {
                 fallback={copy.venueFallback}
                 caption={copy.venueCaption}
                 className="photo-slot--venue"
+                overlay={copy.venueFallback}
               />
             </div>
             <div className="ticket-panel">
@@ -162,9 +163,26 @@ export default function App() {
                     {item.question}
                     <span className="faq-indicator" aria-hidden="true" />
                   </summary>
-                  <p>
-                    {item.kind === "tickets" ? ticketDescription : item.answer}
-                  </p>
+                  <div className="faq-answer">
+                    {item.answer.map((paragraph) => (
+                      <p key={paragraph}>{paragraph}</p>
+                    ))}
+                    {item.notice && (
+                      <p>
+                        <strong>{item.notice}</strong>
+                      </p>
+                    )}
+                    {item.items && (
+                      <ul>
+                        {item.items.map((entry) => (
+                          <li key={entry.label}>
+                            <strong>{entry.label}</strong> {entry.text}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                    {item.note && <p className="faq-note">{item.note}</p>}
+                  </div>
                 </details>
               ))}
             </div>

@@ -364,12 +364,31 @@ dd {
   max-width: 360px;
 }
 .photo-slot--venue .photo-frame {
+  position: relative;
+  isolation: isolate;
   padding: 26px;
   background: var(--yellow);
   color: var(--ink);
 }
 .photo-slot--venue .photo-frame:has(img) {
   padding: 0;
+}
+.photo-slot--venue .photo-frame img {
+  position: absolute;
+  inset: 0;
+}
+.photo-slot--venue .photo-frame:has(.photo-overlay)::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 20%, rgb(0 0 0 / 88%));
+  z-index: 1;
+}
+.photo-slot--venue .photo-overlay {
+  position: absolute;
+  inset: auto 26px 26px;
+  z-index: 2;
+  color: var(--cream);
 }
 .photo-slot--venue .photo-fallback {
   font-size: 2rem;
@@ -408,7 +427,7 @@ dd {
 }
 .faq-grid {
   display: grid;
-  grid-template-columns: 0.8fr 1fr;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr);
   gap: 10%;
 }
 .faq-list details {
@@ -417,20 +436,21 @@ dd {
 .faq-list details:first-child {
   border-top: 1px solid var(--ink);
 }
-summary {
+.faq-list summary {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 24px;
   padding: 25px 2px;
-  font-size: 0.92rem;
+  font-size: 1rem;
+  line-height: 1.5;
   font-weight: 600;
   list-style: none;
 }
-summary::-webkit-details-marker {
+.faq-list summary::-webkit-details-marker {
   display: none;
 }
-summary:hover {
+.faq-list summary:hover {
   text-decoration: underline;
   text-underline-offset: 4px;
 }
@@ -455,14 +475,45 @@ summary:hover {
   height: 16px;
   width: 2px;
   left: 7px;
+  transition: transform 180ms ease;
 }
-details[open] .faq-indicator::after {
-  display: none;
+.faq-list details[open] .faq-indicator::after {
+  transform: scaleY(0);
 }
-details > p {
-  font-size: 0.88rem;
+.faq-answer {
+  font-size: 0.95rem;
+  line-height: 1.7;
   padding: 0 32px 25px 2px;
   max-width: 580px;
+}
+.faq-answer > * + * {
+  margin-top: 16px;
+}
+.faq-answer ul {
+  margin-bottom: 0;
+  padding-left: 20px;
+}
+.faq-answer li + li {
+  margin-top: 8px;
+}
+.faq-note {
+  border-left: 2px solid currentColor;
+  padding-left: 14px;
+}
+@supports (interpolate-size: allow-keywords) {
+  .faq-list details {
+    interpolate-size: allow-keywords;
+  }
+  .faq-list details::details-content {
+    height: 0;
+    overflow: clip;
+    transition:
+      height 220ms ease,
+      content-visibility 220ms allow-discrete;
+  }
+  .faq-list details[open]::details-content {
+    height: auto;
+  }
 }
 .closing {
   text-align: center;
@@ -486,6 +537,9 @@ details > p {
 }
 .closing-welcome {
   max-width: 960px;
+  max-height: 540px;
+  height: auto;
+  object-fit: contain;
   margin: 0 auto clamp(24px, 4vw, 40px);
 }
 .closing-brand {
@@ -610,8 +664,8 @@ details > p {
   .faq-grid {
     gap: 38px;
   }
-  summary {
-    font-size: 0.88rem;
+  .faq-list summary {
+    font-size: 0.95rem;
     padding-block: 23px;
   }
   .closing .eyebrow {
@@ -742,7 +796,7 @@ details > p {
 .new-year-strip {
   display: flex;
   align-items: center;
-  background: var(--ink);
+  background: #000;
   color: var(--yellow);
   padding-block: 18px;
 }
@@ -755,7 +809,7 @@ details > p {
 .marquee-track {
   display: flex;
   width: max-content;
-  animation: new-year-left 20s linear infinite !important;
+  animation: new-year-left 20s linear infinite;
   will-change: transform;
 }
 .marquee-group {
@@ -937,6 +991,9 @@ details > p {
   html {
     scroll-behavior: auto;
   }
+  .faq-list details::details-content {
+    transition: none;
+  }
   *,
   *::before,
   *::after {
@@ -1046,7 +1103,7 @@ details > p {
 .photo-marquee-track {
   display: flex;
   width: max-content;
-  animation: new-year-left 60s linear infinite !important;
+  animation: new-year-left 60s linear infinite;
   will-change: transform;
 }
 .photo-marquee-group {
@@ -1084,4 +1141,13 @@ details > p {
   font-size: clamp(1.4rem, 2.4vw, 2.4rem);
   line-height: 1.15;
   text-transform: uppercase;
+}
+@media (prefers-reduced-motion: reduce) {
+  .photo-marquee {
+    overflow-x: auto;
+    mask-image: none;
+  }
+  .photo-marquee-group[aria-hidden="true"] {
+    display: none;
+  }
 }
