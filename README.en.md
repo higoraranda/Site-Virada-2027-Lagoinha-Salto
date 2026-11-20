@@ -272,7 +272,7 @@ A clean dependency installation was not repeated: installation instructions matc
 
 Tests cover countdown calculation and lifecycle, URL validation, purchase state, section order, absence of pause controls and image-error fallback. Browser checks confirmed loaded fonts and artwork, six disabled calls to action, 12 configured photos and two embedded maps; they do not certify Google Maps’ external availability.
 
-The finalization update fixes reduced motion in the photo strip and FAQ. With this preference enabled, the gallery supports manual horizontal scrolling without automatic animation.
+Reduced motion disables the FAQ transition. The text strip and photo gallery keep scrolling continuously with either motion preference, as explicitly requested by the user.
 
 This folder has no `test:browser`, `lint` or `format` script and no CI pipeline. Playwright and Axe are installed as tools; this does not amount to a full accessibility audit or testing across every browser. Historical reports in the parent directory describe earlier stages, including carousel designs that have since been replaced.
 

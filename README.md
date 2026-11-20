@@ -60,7 +60,7 @@ Se pnpm não estiver instalado, use `npx --yes pnpm@11.25.0` no lugar de `pnpm`,
 
 - Home com artes oficiais, logo à esquerda e botão de ingressos à direita. A logo usa o símbolo V27 amarelo. No desktop, a arte principal ocupa toda a largura e é estendida apenas horizontalmente, mantendo a altura anterior; até 760px, preserva a proporção e o enquadramento do celular. A imagem Welcome fica no footer, entre Viva o novo ano. e o CTA.
 - Contagem regressiva com dias, horas, minutos e segundos; ao chegar ao alvo, mostra uma mensagem de celebração.
-- Faixa “VIVA O NOVO ANO” com fundo preto e texto amarelo; galeria com 12 fotos da última virada. Ambas deslizam continuamente para a esquerda; com movimento reduzido, ficam estáticas e a galeria permite rolagem manual.
+- Faixa “VIVA O NOVO ANO” com fundo preto e texto amarelo; galeria com 12 fotos da última virada. Ambas deslizam continuamente para a esquerda, em ciclos de 20s e 60s, inclusive com a preferência de movimento reduzido, conforme orientação do usuário.
 - Dois mapas do Google com carregamento adiado, títulos descritivos e links para abrir as localizações em outra aba.
 - Dez perguntas frequentes aprovadas, com `details`/`summary`, parágrafos e lista de faixas etárias; navegação por âncoras no rodapé, link para pular ao conteúdo e chamada de ingressos fixa no celular.
 - Quatro pontos de chamada para ingressos, com comportamento centralizado e estado desativado se a URL configurada não for HTTPS válida.
@@ -278,7 +278,7 @@ A instalação do zero não foi repetida: as instruções de instalação corres
 
 Os testes cobrem cálculo e ciclo de vida do contador, validação da URL, estado de compra, ordem de seções, ausência de controles de pausa e fallback de imagem. As verificações de navegador confirmaram fontes e artes carregadas, seis chamadas desativadas, 12 fotos cadastradas e dois mapas embutidos; não certificam a disponibilidade externa do Google Maps.
 
-A revisão de finalização corrigiu a redução de movimento da faixa de fotos e do FAQ. Com essa preferência ativa, a galeria permite rolagem horizontal manual sem animação automática.
+A preferência de movimento reduzido desliga a transição do FAQ. As animações contínuas da faixa e das fotos são preservadas em qualquer preferência de movimento, conforme orientação explícita do usuário.
 
 Não há script `test:browser`, `lint`, `format` ou pipeline de CI nesta pasta. Playwright e Axe estão instalados como ferramentas, mas isso não equivale a uma auditoria completa de acessibilidade ou a testes em todos os navegadores. Relatórios antigos da pasta superior descrevem etapas anteriores, inclusive formatos de carrossel já substituídos.
 

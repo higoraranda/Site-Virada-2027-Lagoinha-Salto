@@ -22,7 +22,7 @@ O painel azul de ingressos permanece no fluxo normal, centralizado verticalmente
 
 A box Nos encontramos na virada. usa a foto fornecida em `public/media/encontro-lagoinha.jpg`, otimizada em 1200×800. O enquadramento usa cover, com texto creme sobre gradiente escuro; a mensagem original é preservada como fallback se a foto falhar.
 
-FAQ: dez perguntas aprovadas em `src/config.ts`, com parágrafos, lista semântica para faixas etárias e ressalva dos direitos legais na política de reembolso. Preservar o accordion nativo details/summary, foco visível e abertura suave nos navegadores com suporte a interpolate-size. Movimento reduzido desliga as animações; a galeria permite rolagem horizontal manual nesse modo.
+FAQ: dez perguntas aprovadas em `src/config.ts`, com parágrafos, lista semântica para faixas etárias e ressalva dos direitos legais na política de reembolso. Preservar o accordion nativo details/summary, foco visível e abertura suave nos navegadores com suporte a interpolate-size. Movimento reduzido desliga a transição do FAQ. Por orientação explícita do usuário, a faixa e as fotos mantêm suas animações contínuas em qualquer preferência de movimento, respectivamente em 20s e 60s, com os dois grupos preservados para repetição sem salto.
 
 Botões de venda têm altura mínima de 68px no corpo, 60px no canto da home e 56px nesse canto no celular; a chamada móvel tem mínimo de 60px. Todos os links do rodapé usam peso 700 (negrito).
 
