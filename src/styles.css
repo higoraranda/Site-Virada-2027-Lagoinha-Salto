@@ -422,8 +422,8 @@ dd {
   border-top: 1px solid var(--cream);
   font-size: 0.78rem;
 }
-.faq-section {
-  border-top: 1px solid var(--ink);
+.tickets-section + .faq-section {
+  padding-block-start: 0;
 }
 .faq-grid {
   display: grid;
@@ -796,7 +796,7 @@ dd {
 .new-year-strip {
   display: flex;
   align-items: center;
-  background: #000;
+  background: var(--ink);
   color: var(--yellow);
   padding-block: 18px;
 }

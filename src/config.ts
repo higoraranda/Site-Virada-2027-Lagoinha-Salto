@@ -6,6 +6,7 @@ export type ImageAsset = {
 };
 export type Photo = ImageAsset & {
   position?: string;
+  zoom?: number;
   fit?: "contain" | "cover";
   aspectRatio?: string;
 };
@@ -28,6 +29,10 @@ const dinnerPhotos: Photo[] = Object.keys(dinnerFiles)
     src: path.replace("/public", ""),
     alt: `Registros da última virada — foto ${i + 1}`,
     fit: "cover",
+    // A foto veio de uma captura com a moldura do player.
+    ...(path.endsWith("/04a-jantar-pratos-quentes.jpg")
+      ? { position: "55% center", zoom: 1.14 }
+      : {}),
   }));
 
 // Preencha somente com informações e materiais confirmados de Salto.

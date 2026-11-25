@@ -51,3 +51,19 @@ it("exibe fotos reais sem controles e suporta arquivo com falha", () => {
     eventConfig.photos.pastDinner = previous;
   }
 });
+
+it("recorta apenas a foto de pratos quentes nas duas cópias do carrossel", () => {
+  const { container } = render(<PastDinner />);
+  const photos = Array.from(
+    container.querySelectorAll<HTMLImageElement>(".memory-card img"),
+  );
+  const hotDishes = photos.filter((photo) =>
+    photo.src.endsWith("/04a-jantar-pratos-quentes.jpg"),
+  );
+  expect(hotDishes).toHaveLength(2);
+  for (const photo of hotDishes) {
+    expect(photo.style.transform).toBe("scale(1.14)");
+    expect(photo.style.objectPosition).toBe("55% center");
+  }
+  expect(photos.filter((photo) => photo.style.transform)).toEqual(hotDishes);
+});

@@ -19,6 +19,7 @@ function MemoryPhoto({
           style={{
             objectFit: photo.fit ?? "cover",
             objectPosition: photo.position ?? "center",
+            transform: photo.zoom ? `scale(${photo.zoom})` : undefined,
           }}
           onError={() => setFailed(true)}
         />
