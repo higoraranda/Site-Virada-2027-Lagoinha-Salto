@@ -422,8 +422,8 @@ dd {
   border-top: 1px solid var(--cream);
   font-size: 0.78rem;
 }
-.tickets-section + .faq-section {
-  padding-block-start: 0;
+.faq-section {
+  background: var(--yellow);
 }
 .faq-grid {
   display: grid;
