@@ -14,7 +14,7 @@ Logo canônica: `public/media/01_LOGOS/PNG/02_simbolo-v27_amarelo.png`, símbolo
 
 Hero: acima de 760px, a arte ocupa toda a largura, estendida apenas horizontalmente; sua altura equivale à apresentação anterior em 70% da largura (proporção de exibição 1920 / 756). Até 760px, preservar a proporção original e o enquadramento existente.
 
-Abertura: exibir somente a data acima da arte, sem o rótulo Culto da Virada. Data e ações mantêm os tamanhos existentes. A faixa VIVA O NOVO ANO vem imediatamente após a hero, com fundo marrom (`--ink`), o mesmo da seção de localizações e texto no amarelo `--yellow`, preservando tipografia e animação. A antiga seção de apresentação `#sobre` foi removida; contador e galeria continuam na sequência. O contador acompanha a meia-noite de 01/01/2027 no horário de Brasília; o culto começa às 22h de 31/12/2026.
+Abertura: exibir somente a data acima da arte, sem o rótulo Culto da Virada. Data e ações mantêm os tamanhos existentes. A faixa VIVA O NOVO ANO vem imediatamente após a hero, com fundo marrom (`--ink`), o mesmo da seção de localizações e texto no amarelo `--yellow`, preservando tipografia e animação. A antiga seção de apresentação `#sobre` foi removida; contador e galeria continuam na sequência. O contador acompanha o início do Culto da Virada: 31/12/2026 às 22h, no horário de Brasília.
 
 Encerramento: integra o footer azul, com título Viva o novo ano., arte Welcome e botão de ingresso nessa ordem. A arte original `foto_abaixo_home.png` permanece íntegra, sem filtros ou recortes, com largura máxima de 960px e altura automática. Logo, informações da igreja e navegação permanecem no rodapé; o link para a seção removida não é exibido.
 

@@ -43,7 +43,7 @@ export const eventConfig = {
   dateLabel: "31 de dezembro de 2026",
   shortDate: "31.12.2026",
   arrivingYear: "2027",
-  countdownTarget: "2027-01-01T00:00:00-03:00",
+  countdownTarget: "2026-12-31T22:00:00-03:00",
   startTime: "22h · horário de Brasília" as string | null,
   companions: "Sua família",
   location: "Lagoinha Salto · Salto, SP" as string | null,
@@ -139,13 +139,13 @@ export const eventConfig = {
     heroHope: "Esperança pelo que vem.",
     heroDescription:
       "Vamos receber 2027 na presença de Deus, com a Lagoinha Salto.",
-    countdownEyebrow: "Contagem para a virada de 2027",
+    countdownEyebrow: "Contagem para o Culto da Virada",
     countdownLabel:
-      "Tempo até a meia-noite de 1º de janeiro de 2027, horário de Brasília",
+      "Tempo até o início do Culto da Virada, às 22h de 31 de dezembro de 2026, no horário de Brasília",
     countdownTitle: "O novo se aproxima.",
     countdownNote:
-      "Contagem até a meia-noite de 1º de janeiro de 2027, no horário de Brasília. O culto começa em 31/12/2026, às 22h.",
-    celebration: "Chegou 2027! Vamos celebrar juntos na presença de Deus.",
+      "O culto começa em 31/12/2026, às 22h, no horário de Brasília.",
+    celebration: "É hora do Culto da Virada!",
     communityEyebrow: "Lagoinha Salto",
     communityTitle: "O melhor é\nestarmos juntos.",
     communityDescription:

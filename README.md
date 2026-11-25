@@ -45,16 +45,16 @@ Se pnpm não estiver instalado, use `npx --yes pnpm@11.25.0` no lugar de `pnpm`,
 
 ## Visão geral
 
-| Informação                         | Implementação atual                                                           |
-| ---------------------------------- | ----------------------------------------------------------------------------- |
-| Evento                             | Vira Salto 27 — Culto da Virada                                               |
-| Organização                        | Lagoinha Salto                                                                |
-| Data                               | 31 de dezembro de 2026, recebendo 2027                                        |
-| Início do culto                    | 31/12/2026 às 22h, horário de Brasília (UTC−03:00)                            |
-| Alvo da contagem                   | 01/01/2027 à meia-noite, horário de Brasília (UTC−03:00)                      |
-| Locais apresentados                | Lagoinha Salto, em Salto/SP; Restaurante Santa Rita, em Itu/SP, para o jantar |
-| Idioma da interface                | Português brasileiro                                                          |
-| Arquitetura                        | Página estática em React, sem backend ou checkout próprio                     |
+| Informação          | Implementação atual                                                           |
+| ------------------- | ----------------------------------------------------------------------------- |
+| Evento              | Vira Salto 27 — Culto da Virada                                               |
+| Organização         | Lagoinha Salto                                                                |
+| Data                | 31 de dezembro de 2026, recebendo 2027                                        |
+| Início do culto     | 31/12/2026 às 22h, horário de Brasília (UTC−03:00)                            |
+| Alvo da contagem    | 31/12/2026 às 22h, horário de Brasília (UTC−03:00)                            |
+| Locais apresentados | Lagoinha Salto, em Salto/SP; Restaurante Santa Rita, em Itu/SP, para o jantar |
+| Idioma da interface | Português brasileiro                                                          |
+| Arquitetura         | Página estática em React, sem backend ou checkout próprio                     |
 
 ### O que está implementado
 
@@ -80,7 +80,7 @@ A arte preserva o enquadramento do celular, e a chamada de ingressos fica dispon
 
 ![Contador com dias, horas, minutos e segundos até o início do culto](docs/screenshots/countdown.png)
 
-Na implementação atual, o visitante acompanha o tempo até **01/01/2027 à meia-noite de Brasília**. O contador usa o relógio do dispositivo. A captura acima é histórica, anterior a esse ajuste.
+Na implementação atual, o visitante acompanha o tempo até o **início do Culto da Virada, dia 31/12/2026 às 22h (horário de Brasília)**. O contador usa o relógio do dispositivo. A captura acima é histórica, anterior a esse ajuste.
 
 ### Recordações da última virada
 
@@ -220,15 +220,15 @@ Metadados de título, descrição e Open Graph ficam em [`index.html`](index.htm
 
 ### Contagem regressiva
 
-O alvo implementado é a **virada para 01/01/2027 à meia-noite, horário de Brasília**:
+O alvo implementado é o **início do Culto da Virada, às 22h de 31/12/2026, no horário de Brasília**:
 
 ```ts
-countdownTarget: "2027-01-01T00:00:00-03:00";
+countdownTarget: "2026-12-31T22:00:00-03:00";
 ```
 
 O cálculo usa esse instante absoluto, independentemente do fuso do visitante, e zera ao chegar ao alvo, sem avançar automaticamente para outro ano. A hora atual vem do relógio do dispositivo, sem sincronização com servidor.
 
-O início do culto permanece às **22h de 31/12/2026**, separado do alvo do contador. Para uma alteração futura, revise `countdownTarget`, `copy.countdownNote` e `tests/event.test.tsx`; altere `startTime` somente se o horário do culto mudar.
+A oração à meia-noite continua no programa do evento. Ao alterar o início do culto, mantenha `countdownTarget`, `startTime`, os textos da contagem, o FAQ e `tests/event.test.tsx` alinhados.
 
 ### Fotos, artes e fontes
 

@@ -11,10 +11,10 @@ afterEach(() => {
   vi.useRealTimers();
 });
 
-describe("instante absoluto da virada", () => {
-  const target = Date.parse("2027-01-01T00:00:00-03:00");
+describe("instante absoluto do início do culto", () => {
+  const target = Date.parse("2026-12-31T22:00:00-03:00");
   it("fixa o alvo e a data confirmados", () => {
-    expect(eventConfig.countdownTarget).toBe("2027-01-01T00:00:00-03:00");
+    expect(eventConfig.countdownTarget).toBe("2026-12-31T22:00:00-03:00");
     expect(eventConfig.date).toBe("2026-12-31");
     expect(eventConfig.startTime).toBe("22h · horário de Brasília");
   });
@@ -28,18 +28,13 @@ describe("instante absoluto da virada", () => {
     });
   });
   it("equivale ao mesmo instante em UTC", () => {
-    expect(target).toBe(Date.parse("2027-01-01T03:00:00Z"));
+    expect(target).toBe(Date.parse("2027-01-01T01:00:00Z"));
   });
-  it("continua contando ao iniciar o culto às 22h", () => {
+  it("encerra às 22h sem esperar a virada do ano", () => {
+    expect(getCountdown(target, target).finished).toBe(true);
     expect(
-      getCountdown(target, Date.parse("2026-12-31T22:00:00-03:00")),
-    ).toEqual({
-      days: 0,
-      hours: 2,
-      minutes: 0,
-      seconds: 0,
-      finished: false,
-    });
+      getCountdown(target, Date.parse("2027-01-01T00:00:00-03:00")).finished,
+    ).toBe(true);
   });
   it("não encerra no último segundo parcial", () => {
     expect(getCountdown(target, target - 1).finished).toBe(false);
@@ -66,6 +61,11 @@ describe("instante absoluto da virada", () => {
     vi.setSystemTime(target - 2000);
     const clear = vi.spyOn(window, "clearInterval");
     render(<Countdown />);
+    expect(
+      screen.getByRole("group", {
+        name: "Tempo até o início do Culto da Virada, às 22h de 31 de dezembro de 2026, no horário de Brasília",
+      }),
+    ).toBeDefined();
     expect(screen.getByLabelText("Segundos").textContent).toContain("02");
     act(() => {
       vi.advanceTimersByTime(1000);
@@ -75,12 +75,13 @@ describe("instante absoluto da virada", () => {
       vi.advanceTimersByTime(1000);
     });
     expect(screen.getByRole("status").textContent).toBe(
-      eventConfig.copy.celebration,
+      "É hora do Culto da Virada!",
     );
+    expect(screen.queryByLabelText("Segundos")).toBeNull();
     expect(clear).toHaveBeenCalled();
     expect(vi.getTimerCount()).toBe(0);
   });
-  it("não cria intervalo após a virada", () => {
+  it("não cria intervalo após o início do culto", () => {
     vi.useFakeTimers();
     vi.setSystemTime(target + 1);
     render(<Countdown />);

@@ -45,16 +45,16 @@ If pnpm is not installed, replace `pnpm` with `npx --yes pnpm@11.25.0`, provided
 
 ## Overview
 
-| Information                        | Current implementation                                                                   |
-| ---------------------------------- | ---------------------------------------------------------------------------------------- |
-| Event                              | Vira Salto 27 — New Year’s Eve service                                                   |
-| Organizer                          | Lagoinha Salto                                                                           |
-| Date                               | December 31, 2026, welcoming 2027                                                        |
-| Service start                      | December 31, 2026, at 10:00 PM Brasília time (UTC−03:00)                                 |
-| Countdown target                   | January 1, 2027, at midnight Brasília time (UTC−03:00)                                  |
-| Locations shown                    | Lagoinha Salto in Salto, São Paulo; Restaurante Santa Rita in Itu, São Paulo, for dinner |
-| Interface language                 | Brazilian Portuguese                                                                     |
-| Architecture                       | Static React page with no backend or built-in checkout                                   |
+| Information        | Current implementation                                                                   |
+| ------------------ | ---------------------------------------------------------------------------------------- |
+| Event              | Vira Salto 27 — New Year’s Eve service                                                   |
+| Organizer          | Lagoinha Salto                                                                           |
+| Date               | December 31, 2026, welcoming 2027                                                        |
+| Service start      | December 31, 2026, at 10:00 PM Brasília time (UTC−03:00)                                 |
+| Countdown target   | December 31, 2026, at 10:00 PM Brasília time (UTC−03:00)                                 |
+| Locations shown    | Lagoinha Salto in Salto, São Paulo; Restaurante Santa Rita in Itu, São Paulo, for dinner |
+| Interface language | Brazilian Portuguese                                                                     |
+| Architecture       | Static React page with no backend or built-in checkout                                   |
 
 ### Implemented features
 
@@ -79,7 +79,7 @@ The artwork preserves the mobile framing, and ticket controls remain available a
 
 ![Countdown showing days, hours, minutes and seconds until the service](docs/screenshots/countdown.png)
 
-The current countdown follows the time remaining until **January 1, 2027 at midnight Brasília time**. It uses the device clock. The screenshot above predates this change.
+The current countdown follows the time remaining until the **start of the New Year’s Eve service, December 31, 2026, at 10:00 PM Brasília time**. It uses the device clock. The screenshot above predates this change.
 
 ### Memories from the previous celebration
 
@@ -214,15 +214,15 @@ Title, description and Open Graph metadata are in [`index.html`](index.html). Re
 
 ### Countdown
 
-The implemented target is **January 1, 2027, at midnight Brasília time**:
+The implemented target is the **start of the New Year’s Eve service, December 31, 2026, at 10:00 PM Brasília time**:
 
 ```ts
-countdownTarget: "2027-01-01T00:00:00-03:00";
+countdownTarget: "2026-12-31T22:00:00-03:00";
 ```
 
 The calculation uses this absolute instant regardless of the visitor’s time zone. It reaches zero at the target and does not automatically advance to another year. The current time comes from the device’s clock, without server synchronization.
 
-The service still starts at **10:00 PM on December 31, 2026**, separately from the countdown target. For future changes, review `countdownTarget`, `copy.countdownNote` and `tests/event.test.tsx`; update `startTime` only if the service time changes.
+The midnight prayer remains part of the program. If the service start changes, keep `countdownTarget`, `startTime`, the countdown copy, the FAQ and `tests/event.test.tsx` in sync.
 
 ### Photos, artwork and fonts
 
