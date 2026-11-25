@@ -114,12 +114,12 @@ export const eventConfig = {
     { href: "#duvidas", label: "Dúvidas" },
   ],
   copy: {
-    dinnerEyebrow: "Culto da Virada",
+    dinnerEyebrow: "Culto e Jantar da Virada",
     dinnerTitle: "Como foi\nno ano passado",
     dinnerDescription:
-      "Uma noite de fé, comunhão e gratidão. Relembre a nossa última virada e prepare o coração para receber 2027 na presença de Deus, com sua família e a Lagoinha Salto.",
+      "Na última virada, celebramos na presença de Deus e seguimos em comunhão à mesa. Relembre os momentos do culto e do jantar com a Lagoinha Salto.",
     dinnerPhotosPending: "Fotos da última virada em breve",
-    dinnerGalleryLabel: "Recordações da nossa última virada",
+    dinnerGalleryLabel: "Fotos do culto e do jantar da última virada",
     skip: "Pular para o conteúdo",
     eventType: "Culto da Virada",
     available: "COMPRE AQUI",
